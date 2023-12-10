@@ -44,22 +44,23 @@
 #### ПЕРВЫЙ ВАРИАНТ НАСТРОЙКИ
 ###### #Настройка IP-адресов каждой машины (кроме CLI). Каждый интерфейс настраивается через *nmcli* одной длинной командой:
 #### ISP
-![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/3e349e1a-6168-44de-8e1b-1c1d9ca5869f)
-![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/83517f27-6aac-4a10-85a2-fe2d772f6af3)
-![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/8f168ca6-a1f0-453f-92d6-16bcbf2a709d)
-Вводим Hostname
-![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/ff9744d8-9137-487a-b277-0456e9133bad)
-
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/2d186e7c-4608-44ac-b754-390c15bd85ec)
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/0fba0d21-8df1-41e2-b346-5cdbefb11b71)
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/45076e2b-3bcf-4dfc-8c5b-27826d3e4bff)
 #### RTR-R
-![изображение](https://user-images.githubusercontent.com/28905300/176381588-691c1fa6-a173-443a-98d9-a395dd1afcc0.png)
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/1a62f7fe-6b44-4bca-a624-251b6702a1eb)
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/45bea698-01a1-4d88-a4c1-1d4a906c1b1b)
+
 #### RTR-L
-![изображение](https://user-images.githubusercontent.com/28905300/176381793-9cb85679-d860-41ff-a184-8e01121ba158.png)
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/9420f480-1ae4-4cdc-946d-c76ccf067cb7)
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/d02a73c2-4a18-4cab-a304-2169e3c1b0ae)
+
 #### WEB-L
-![изображение](https://user-images.githubusercontent.com/28905300/176381968-10409a3c-c436-4f75-a10f-e2ff426d656f.png)
+На будущее 
 #### SRV
-![изображение](https://user-images.githubusercontent.com/28905300/176382133-444ea1e8-10a0-49cc-8937-d87cad6696fe.png)
+На будущее 
 #### WEB-R
-![изображение](https://user-images.githubusercontent.com/28905300/176382245-a676d222-22e9-4c10-bc44-538660cad981.png)
+На будущее 
 #### CLI
 ###### #На виртуальной машине CLI, по заданию, операционная система Windows 10. Порядок изменения имени хоста и IP-адреса там другой:
 ![изображение](https://user-images.githubusercontent.com/28905300/176009988-c0fa9d7a-74e4-4a4b-878b-08aa0375e485.png)
@@ -78,22 +79,7 @@
 
 ![изображение](https://user-images.githubusercontent.com/28905300/176010174-468b241f-463d-481c-8f46-aba1c53c740c.png)
 ###### #Запрос о перезагрузке подтверждаем.
-#### ВТОРОЙ ВАРИАНТ НАСТРОЙКИ
-###### #(короткие команды в nmcli):
-#### ISP
-![изображение](https://user-images.githubusercontent.com/28905300/176387802-3f73e22f-5f88-42a1-97f9-b5ebf0882296.png)
 
-![изображение](https://user-images.githubusercontent.com/28905300/176387985-6422a16a-0319-42a9-9867-2b37763a4174.png)
-#### RTR-R
-![изображение](https://user-images.githubusercontent.com/28905300/176388472-d0dee906-9829-42d2-a663-25383220260c.png)
-#### RTR-L
-![изображение](https://user-images.githubusercontent.com/28905300/176388804-e6b337ce-539b-4ad8-a37e-5316a3c0282c.png)
-#### WEB-L
-![изображение](https://user-images.githubusercontent.com/28905300/176388969-f5855453-7f40-4a23-8849-baa95fec6c45.png)
-#### SRV
-![изображение](https://user-images.githubusercontent.com/28905300/176389146-f7792fe1-b075-49d0-8f01-13cf50cbe2ec.png)
-#### WEB-R
-![изображение](https://user-images.githubusercontent.com/28905300/176389663-832481a1-0da3-4e61-9199-3e532a35e74c.png)
 ###### #После настройки IP-адресации, проверяем доступность соседних устройств с помощью команды *ping*.
 ###### #Для отправки файлов с помощью *scp* (или для соединения по ssh), нужно отредактировать *sshd_config* на начальной (откуда), конечной (куда отправляем файл) и промежуточной виртуальной машине (через какую машину проходит файл). Допустим, нужно отправить файл test с RTR-L на RTR-R. После установки пакетов, включая ssh, на RTR-L, RTR-R и ISP между ними редактируется строка с разрешением на аутентификацию из под root.
 ![изображение](https://user-images.githubusercontent.com/28905300/176393008-670c5070-d976-44a0-a50f-b9e01bd49851.png)
@@ -109,40 +95,15 @@
 1. Сети, подключенные к ISP, считаются внешними:
    - Запрещено прямое попадание трафика из внутренних сетей во внешние и наоборот;
 ###### #Сперва, нужно разрешить пересылку пакетов через устройства, осуществляющих маршрутизацию (RTR-L, ISP и RTR-R).
-![изображение](https://user-images.githubusercontent.com/28905300/176395129-b093c8f5-259b-411d-a916-62d44fa60676.png)
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/e8f3514c-af60-4f04-90e5-9e931cd10811)
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/d0e0e9fe-1ac5-4a43-bb29-51ec498bfed8)
 
-![изображение](https://user-images.githubusercontent.com/28905300/176395238-52737eea-00f5-4c06-a0ad-153250691839.png)
-###### #Для выполнения условия о запрете прямого прохождения трафика, необходимо установить *firewalld* на RTR-L и RTR-R. Интерфейсы на них, смотрящие во внешние сети, определить в зону *external*. В зоне *external* разрешён не весь, а только определённый вручную тип трафика, а также выполняется трансляция трафика, идущего из внутренних сетей во внешние.
-![изображение](https://user-images.githubusercontent.com/28905300/176395560-4328479c-3f44-4137-b66d-06a5e3009a58.png)
-
-![изображение](https://user-images.githubusercontent.com/28905300/176395661-7726b0c5-527a-4177-b535-e6e324d87254.png)
-###### #Выявляем интерфейсы, которые смотрят во «внешние» сети.
-![изображение](https://user-images.githubusercontent.com/28905300/176395973-bbb2d5b5-3583-4dbc-bb5b-45fe29ec5c40.png)
-
-![изображение](https://user-images.githubusercontent.com/28905300/176396149-4833c7c0-1401-45c5-b93a-148d72d9924b.png)
-
-![изображение](https://user-images.githubusercontent.com/28905300/176396304-d10a253f-6315-4f01-9bf1-3e8871950d70.png)
-
-![изображение](https://user-images.githubusercontent.com/28905300/176396415-b5a75ffe-fe25-4ac3-b8eb-06f6d20f6865.png)
-
-![изображение](https://user-images.githubusercontent.com/28905300/176396503-78855e07-a419-4a63-b61a-8d60e8f21223.png)
-##
-2. Платформы контроля трафика, установленные на границах регионов, должны выполнять трансляцию трафика, идущего из соответствующих внутренних сетей во внешние сети стенда и в сеть Интернет.
-   - Трансляция исходящих адресов производится в адрес платформы,расположенный во внешней сети.
-###### #Условия выполнены примерами выше.
-##
-3. Между платформами должен быть установлен защищенный туннель, позволяющий осуществлять связь между регионами с применением внутренних адресов.
-   - Трафик, проходящий по данному туннелю, должен быть защищен:
-     - Платформа ISP не должна иметь возможности просматривать содержимое пакетов, идущих из одной внутренней сети в другую.
-   - Туннель должен позволять защищенное взаимодействие между платформами управления трафиком по их внутренним адресам
-     - Взаимодействие по внешним адресам должно происходит без применения туннеля и шифрования
-   - Трафик, идущий по туннелю между регионами по внутренним адресам, не должен транслироваться.
 ###### #На RTR-L и RTR-R устанавливаем *libreswan* для работы IPsec (создание защищённого туннеля). Для его установки потребуется использовать два образа с ПО, монтируя и извлекая их поочерёдно, когда потребует этого установщик в debian.
 ![изображение](https://user-images.githubusercontent.com/28905300/176397254-3a369195-5a31-4aa2-ba58-a4cabd6b858f.png)
 ###### #Сначала выполняется создание GRE-туннеля между RTR-L и RTR-R. После — настройка файрволла на ISP. Поверх туннеля — настройка IPsec.
-![изображение](https://user-images.githubusercontent.com/28905300/176400175-43c8a332-d604-4e28-9320-3f349ff8b384.png)
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/93d9009e-a699-4c5f-a4a3-c1a2171b90d2)
 
-![изображение](https://user-images.githubusercontent.com/28905300/176400304-d06403bb-0df8-4aab-9b85-01ca7c703c95.png)
+![image](https://github.com/qipparu/DEMO2022-2023-linux-only/assets/88982156/1a004640-c535-46da-8e62-6b2de20633c1)
 
 ![изображение](https://user-images.githubusercontent.com/28905300/176400393-60f4e7c0-1781-4390-af4a-50a2911b4b7c.png)
 
